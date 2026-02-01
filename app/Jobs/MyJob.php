@@ -29,7 +29,7 @@ class MyJob implements ShouldQueue
 
         //ジョブの動作でテーブルに新しいデータを保存
         Book::create([
-            'title' => 'ジョブ 非同期確認',
+            'title' => '特定のキュー',
             'author' => 'ジョブで追加',
             'price' => 1000000,
         ]);
