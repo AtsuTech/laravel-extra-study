@@ -10,12 +10,18 @@ class Filecontroll extends Component
 {
     public $file_name;
     public $data;
+    public $file_path; //ファイルのURL
+    public $size; //ファイルのサイズ
+    public $modified; //ファイルの更新日時
     public $input; //フォーム入力値
 
     public function mount()
     {
         $this->file_name = "sample.txt";
         $this->data = explode(PHP_EOL, Storage::disk('public')->get($this->file_name));
+        $this->file_path = Storage::disk('public')->url($this->file_name); //ファイルのURL
+        $this->size = Storage::disk('public')->size($this->file_name); //ファイルのサイズ
+        $this->modified = Storage::disk('public')->lastModified($this->file_name); //ファイルの更新日
     }
 
     //txtファイルに書き込み
