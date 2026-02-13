@@ -15,6 +15,7 @@ use App\Livewire\Myoriginalservice; // Myoriginalservice
 use App\Livewire\MyJob; //Myjob 
 use App\Livewire\Filecontroll; //File
 use App\Http\Controllers\QueueController; //QueueController
+use App\Http\Controllers\MyEventController; //MyEventController
 
 Route::get('/', function () {
     return view('welcome');
@@ -57,6 +58,9 @@ Route::get('/myjob', MyJob::class)->name('myjob.index');
 
 //指定のキューにジョブを投入(奇数だとジョブがoddキューに偶数だとevenキューに投入)
 Route::get('/myjob/on_queue/{number}', [QueueController::class, 'on_queue'])->name('myjob.on_queue');
+
+//イベントの確認
+Route::get('/myevent', [MyEventController::class, 'event'])->name('myevent.index');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

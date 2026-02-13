@@ -30,3 +30,7 @@ php artisan queue:work --stop-when-empty --queue=odd
 
 ライブラリ
 npm install prismjs
+
+
+## イベント
+https://laravel.com/docs/12.x/events#event-subscribers
